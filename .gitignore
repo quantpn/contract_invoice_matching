@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.db
+*.sqlite3
+
+# Node / Frontend
+node_modules/
+dist/
+.vite/
+*.log
+
+# Runtime uploads (keep directory structure)
+backend/uploads/contracts/*
+!backend/uploads/contracts/.gitkeep
+backend/uploads/invoices/*
+!backend/uploads/invoices/.gitkeep
+
+# Environment & IDE
+.env
+.env.*
+.vscode/
+.idea/
+.DS_Store
+

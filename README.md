@@ -1,7 +1,4 @@
 # Hệ thống AI Agent Đối soát Hóa đơn & Hợp đồng (Refactored từ Odoo Enterprise 19)
-
-Dự án Nghiên cứu Khoa học (NCKH) xây dựng hệ thống AI Agent đối soát tính hợp lệ của **Hóa đơn** so với **Hợp đồng gốc (Source of Truth)** và quy định pháp luật về hóa đơn chứng từ, được refactor độc lập theo kiến trúc **Clean Architecture (4 tầng)** từ hai module lõi `et-addons/ai` và `et-addons/ai_fields` của **Odoo Enterprise 19**.
-
 ---
 
 ## 1. Kiến trúc Phân tầng (Clean Architecture)
@@ -9,7 +6,7 @@ Dự án Nghiên cứu Khoa học (NCKH) xây dựng hệ thống AI Agent đố
 ### Backend (`/home/quan/Documents/contract_invoice_matching/backend`)
 1. **`app/core/` (Core AI Utilities & LLM Adapter Layer — Pure Python):**
    - `llm_providers.py`: Định nghĩa `Provider`, `PROVIDERS` (`openai`, `google`), `EMBEDDING_CONFIG`, `TEMPERATURE_MAP` (`analytical`: 0.2, `balanced`: 0.5, `creative`: 0.8).
-   - `llm_api_service.py`: Refactor nguyên bản `LLMApiService` từ Odoo-ET (`get_embedding`, `get_transcription`, `request_llm`, `_request_llm_openai`, `_request_llm_google`, vòng lặp đệ quy Tool Calling `_request_llm_silent`, và `__end_message`).
+   - `llm_api_service.py`: (`get_embedding`, `get_transcription`, `request_llm`, `_request_llm_openai`, `_request_llm_google`, vòng lặp đệ quy Tool Calling `_request_llm_silent`, và `__end_message`).
    - `ai_fields_tools.py`: Refactor từ `ai_fields/tools.py` (`AI_FIELDS_INSTRUCTIONS`, `INVOICE_EXTRACTION_SCHEMA`, `CONTRACT_SUMMARY_SCHEMA`, cơ chế kiểm soát ảo giác `value`, `could_not_resolve`, `unresolved_cause`).
    - `tools_schema/`: `validators.py` & `param_schema_validator.py` kiểm duyệt JSON Schema nghiêm ngặt cho Function/Tool Calling.
    - `ai_citation.py`: Bộ xử lý trích dẫn `[SOURCE:id]` thành thẻ số thứ tự `[1]`, `[2]` (`apply_numeric_citations`).
